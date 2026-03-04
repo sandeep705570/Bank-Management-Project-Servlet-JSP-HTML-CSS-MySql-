@@ -1,0 +1,156 @@
+<%@page import="Project.ConnectionProvider"%>
+<%@page import="java.sql.*" %>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Change Address</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+      <style>
+      form {
+    width: 300px; /* or a percentage, e.g., 50% */
+    margin: 0 auto; /* sets top/bottom margin to 0, left/right to auto */
+}
+      
+      
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navbar Container */
+        nav {
+            background-color: #1e88e5; /* The blue shade from your image */
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Logo / Branding */
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        /* Navigation Links */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px; /* Spacing between the links */
+        }
+
+        .nav-links li a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        /* Hover effect */
+        .nav-links li a:hover {
+            color: #ffffff;
+            text-shadow: 0 0 5px rgba(255,255,255,0.5);
+        }
+        .form-group{
+        input[type="password"] {
+         width: 100%;
+         padding: 12px 20px;
+         margin: 8px 0;
+         display: inline-block;
+         border: 1px solid #ccc;
+         border-radius: 4px;
+         box-sizing: border-box;
+          }
+        }
+        .register-btn{
+         background-color: blue;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+        }
+    </style>
+  
+</head>
+<body bgcolor='lightblue'>
+          <nav>
+        <a href="userHome.jsp" class="logo" style="background-color:red; padding:5px 10px;"><i class="fa-solid fa-circle-left"></i>Back</a>
+        <ul class="nav-links">
+            <li><a href="profileDetails.jsp"><i class="fa-solid fa-user"></i>Profile</a></li>
+            <li><a href="changeName.jsp"><i class="fa-solid fa-pen-to-square"></i>Change Name</a></li>
+            <li><a href="changeAddress.jsp"><i class="fa-solid fa-pen-to-square"></i>Change Address</a></li>
+            <li><a href="changeMobileandEmail.jsp"><i class="fa-solid fa-pen-to-square"></i>Change Email & Mobile Number</a></li>
+            <li><a href="changePassword.jsp"><i class="fa-solid fa-pen-to-square"></i>Change Password</a></li>
+        </ul>
+    </nav>
+   
+    <div class="form-container">
+        <div class="form-header">
+             <center><h1 style="background-color:pink;color:black;">Change Password</h1></center><br><br>
+              <%
+     String msg=request.getParameter("msg");
+     if("not mached".equals(msg))
+     {
+   %>
+    <center><h1 style="color:red;">Password not matched</h1></center>
+  <%} %>
+  
+  <%
+   if("changed".equals(msg))
+   {
+  %>
+<center>  <h1 style="color:green;">Successfully Changed...</h1></center>
+  <%} %>
+  
+  <%
+  if("wrong".equals(msg))
+  {
+  %>
+  <h1 style="color:red;">Sorry Something went wrong!</h1>
+  <%} %>
+     
+   <%
+    if("wrongOldPass".equals(msg))
+    {
+   %>
+   <h1 style="color:red;">Old Password is not Correct! Sorry Try Again</h1>
+   <%} %>     
+        </div>
+        
+        <form action="changePasswordAction.jsp" method="post">
+            
+            <div class="form-group">
+                <label>Old Password</label>
+                <input type="password" name="oldPassword" value="" placeholder="Enter Old Password" required>
+            </div>
+            
+            <div class="form-group">
+                <label>New Password</label>
+                <input type="password" name="newPassword" placeholder="Enter New Passowrd" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Confirm Password</label>
+                <input type="password" name="confirmPassword" placeholder="Enter Again" required>
+            </div>
+          
+            <button type="submit" class="register-btn">Save</button>
+         </form>
+    </div>
+   
+</body>
+</html>

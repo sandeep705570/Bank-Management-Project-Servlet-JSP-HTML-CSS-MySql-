@@ -1,0 +1,122 @@
+@charset "UTF-8";
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.form-container {
+    background-color: #f8f9fa;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.form-header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+form {
+    padding: 30px 40px;
+}
+
+.form-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    width: 120px;
+    font-weight: bold;
+    color: #444;
+    font-size: 0.9rem;
+    padding-top: 10px;
+}
+
+.form-group label.full-width {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Inputs & Selects */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background-color: #e9ecef;
+    font-size: 0.9rem;
+}
+
+/* Multi-column rows */
+.input-row {
+    flex: 1;
+    display: flex;
+    gap: 15px;
+}
+
+.input-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.sub-label {
+    font-size: 0.75rem;
+    color: #6c757d;
+    margin-top: 5px;
+}
+
+
+
+.radio-group {
+    display: flex;
+    gap: 20px;
+}
+
+.radio-group label {
+    width: auto;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Button */
+.register-btn {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.register-btn:hover {
+    background-color: #e91e63;
+}
